@@ -1,5 +1,5 @@
-# wavelet_tree_858D
-A wavelet tree construction based on succinct data structure. (Assignment#1 for CMSC858D-Fall2019)
+# succinctDS_858D
+Succinct Data Structure and Wavelet Tree implementations. (Assignment#1 for CMSC858D-Fall2019)
 
 ----------------------------
 # Overview
@@ -8,8 +8,9 @@ This program contains 3 major succinct primitives: bit-vector rank, bit-vector s
 ----------------------------
 # Usage
 ## 1. Bit-Vector Rank
-The implementation of bit-vector rank operation is written into a class called **rank_support**. A **bit-vector** is required.
+The implementation of bit-vector rank operation is written into a class called **rank_support**. A **bit-vector** is required. All source files are in folder **succinctDS_Rank**. Implementation can be used as classed or a command line program.
 
+### Usage as an object
 Three methods are implemented in this structure:
 - `uint64_t rank1(uint64_t i)` Returns the number of 1s in the underlying bit-vector up to index(0-based) i (inclusive).
 - `uint64_t rank0(uint64_t i)` Returns the number of 0s in the underlying bit-vector up to index(0-based) i (inclusive).
@@ -21,9 +22,32 @@ bit_vector b("1001011101001010");
 rank_support r(&b);
 uint64_t x=r.rank1(4);//x=3
 ```
-## 2. Bit-Vector Select
-The implementation of bit-vector select operation is written into a class called **select_support**. It is built upon **rank_support object**.
 
+### Usage as a program
+**Compilation**
+
+Prerequisite: C++11
+
+Steps:
+1. Clone this repository to you local directory.
+2. `$cd succinctDS_858D/succinctDS_Rank/`
+3. `$./make` An executable program called `SuccinctRank` will appear in the directory.
+
+**Commands and Options**
+- `$./SuccinctRank rank1 <input_bit_string> <index 0-based>`   return the result from method rank1
+- `$./SuccinctRank rank0 <input_bit_string> <index 0-based>`   return the result from method rank0
+- `$./SuccinctRank --h`   show help messages
+
+Example input and output:
+```
+$./SuccinctRank rank1 010101 3
+Result:	rank1 at 3 is 2
+```
+
+## 2. Bit-Vector Select
+The implementation of bit-vector select operation is written into a class called **select_support**. It is built upon **rank_support object**.A **bit-vector** is required. All source files are in folder **succinctDS_Select**. Implementation can be used as classed or a command line program.
+
+### Usage as an object
 
 Three methods are implemented in this structure:
 - `uint64_t select1(uint64_t i)` Returns the index(0-based) of the underlying bit-vector of the ith 1.
@@ -37,6 +61,28 @@ rank_support r(&b);
 select_support s(&r);
 uint64_t y=s.select1(3);//y=5
 ```
+
+### Usage as a program
+**Compilation**
+
+Prerequisite: C++11
+
+Steps:
+1. Clone this repository to you local directory.
+2. `$cd succinctDS_858D/succinctDS_Select/`
+3. `$./make` An executable program called `SuccinctSelect` will appear in the directory.
+
+**Commands and Options**
+- `$./SuccinctSelect select1 <input_bit_string> <occurrence>`   return the result from method select1
+- `$./SuccinctSelect select0 <input_bit_string> <occurrence>`   return the result from method select0
+- `$./SuccinctSelect --h`   show help messages
+
+Example input and output:
+```
+$./SuccinctSelect select1 010101 3
+Result:	select1 at 3 is 5
+```
+
 ## 3. Wavelet-Tree
 The implementation of wavelet-tree is written into a class called **wavelet_tree**. It is built upon **rank_support** and **select_support**.
 
@@ -66,7 +112,7 @@ Prerequisite: C++11
 
 Steps:
 1. Clone this repository to you local directory.
-2. `$cd wavelet_tree_858D`
+2. `$cd succinctDS_858D/WaveletTree/`
 3. `$./make` An executable program called `WVLTREE` will appear in the directory.
 
 **Commands and Options**
