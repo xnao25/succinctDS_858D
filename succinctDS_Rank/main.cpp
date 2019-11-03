@@ -7,7 +7,7 @@ using namespace std;
 int main(int argc, char* argv[]) {
 
     if(argc<4){// || argv[1]=="--h" || argv[1]=="-h"){
-        cout<<"Usage:\n Get rank1:\t/path/to/SuccinctRank rank1 <bit-string> <index 0-based>\n Get rank0:\t/path/to/SuccinctRank rank0 <bit-string> <index>"<<endl;
+        cout<<"Usage:\n Get rank1:\t/path/to/SuccinctRank rank1 <bit-string> <index 0-based>\n Get rank0:\t/path/to/SuccinctRank rank0 <bit-string> <index 0-based>"<<endl;
         cout<<"Example:\n /path/to/SuccinctRank rank1 01010101 3"<<endl;
         cout<<"Please refer to readme for more information."<<endl;
         return 1;
