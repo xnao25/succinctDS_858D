@@ -1,5 +1,6 @@
 # succinctDS_858D
 Succinct Data Structure and Wavelet Tree implementations. (Assignment#1 for CMSC858D-Fall2019)
+
 [GitHub Repository: https://github.com/xnao25/succinctDS_858D](https://github.com/xnao25/succinctDS_858D)
 ----------------------------
 # Overview
