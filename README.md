@@ -93,8 +93,8 @@ Methods in this implementation can be used either as a class object or as a prog
 Four major methods:
 - `tree_build()` Builds a wavelet tree structure. The tree will be built based on a string which is given at the initiation of the object. (The basis of other methods)
 - `char tree_access(unsigned int access_idx)` Returns the character at the given index(0-based) provided.
-- `uint64_t tree_rank(char the_character, uint64_t the_idx)` Returns the number of the given character in the underlying string up to index(0-based) i (inclusive).
-- `uint64_t tree_select(char the_character, uint64_t i)` Returns the index(0-based) of the underlying string of the ith the_character.
+- `uint64_t tree_rank(char the_character, uint64_t the_idx)` Returns the number of the given character in the underlying string up to index(0-based) i (inclusive). If character is not in the string or the index provided is larger than the length of the string-1, the result will be -1.
+- `uint64_t tree_select(char the_character, uint64_t i)` Returns the index(0-based) of the underlying string of the ith the_character. If character is not in the string or the occurrence provided is larger than the rank of such character at the end of the string, the result will be -1.
 
 Example code:
 ```
@@ -149,5 +149,70 @@ The total number of characters in your string is 13.
 ```
 - build output
 ```
+$cat test_output_2.txt
+#Elements & Corresponding integers:
+0:0	1:1	2:2	3:3	4:4	5:5	6:6	7:7	a:8	b:9	c:10
 
+#Wavelet Tree Structure:
+0	0	0	0	0	0	0	0	0	0	1	1	1
+0	0	1	1	0	1	1	0	1	0	0	0	0
+0	0	0	1	1	1	1	0	0	1	0	0	1
+0	1	1	0	1	1	0	0	1	0	0	1	0
+
+#Wavelet Tree Position:
+0:0	1:10
+00:0	01:5	10:10	11:13
+000:0	001:3	010:5	011:7	100:10	101:12	110:13	111:13
+```
+- access command input
+```
+cat test_access_input.txt
+0
+3
+5
+7
+```
+- access command
+```
+$./WVLTREE access test_output_2.txt test_access_input.txt
+0
+7
+5
+2
+```
+- rank command input
+```
+$cat test_rank_input.txt
+0	10
+1	20
+8	20
+a	10
+p	3
+```
+- rank command
+```
+./WVLTREE rank test_output_2.txt test_rank_input.txt
+1
+-1
+-1
+1
+-1
+```
+- select command input
+```
+$cat test_select_input.txt
+1	2
+0	2
+a	1
+b	1
+c	1
+```
+- select command
+```
+$./WVLTREE select test_output_2.txt test_select_input.txt
+4
+-1
+10
+11
+12
 ```
