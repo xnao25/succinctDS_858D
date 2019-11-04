@@ -38,13 +38,15 @@ int main(int argc, char* argv[]) {
     }else if(string_qualified==false){
         cout<<"Error: unqualified character in string."<<endl;
         return 1;
-    }else if(index_>bitstring.size()-1){
-        cout<<"Error: index provided exceeds limit of string."<<endl;
-        return 1;
     }
     bit_vector the_bit_vector(bitstring);
     rank_support the_rank(the_bit_vector);
     select_support the_select(the_rank);
+    uint64_t max_select=(command=="select1")? the_rank.rank1(bitstring.size()-1):the_rank.rank0(bitstring.size()-1);
+    if(index_>max_select){
+        cout<<"Error: occurrence provided exceed the real occurrence of bit existed in your string."<<endl;
+        return 1;
+    }
     uint64_t result=(command=="select1")? the_select.select1(index_):the_select.select0(index_);
     cout<<"Result:\t"<<command<<" at "<<idx<<" is "<<result<<endl;
 
