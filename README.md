@@ -136,3 +136,18 @@ Steps:
   - The select(s) of the character(s) at the given index(es) will be returned on the terminal. The defination of select is that the index(0-based) of the underlying string of the ith the_character.
   - Input: `<input_tree_file>` A text file containing the structure of the wavelet tree. It is usually the output of the command `build`.
   - Input: `<access indices>` A text file containing a "\n"-separated list of indices to access. The format of each line should be `<c>\t<i>`, where `<c>` is the character and `<i>` is the 0-based index.
+
+Example input and output:
+
+- build command
+```
+$./WVLTREE build 0167154263abc test_output_2.txt
+Messages:
+Your wavelet tree is built, please see more information in your output file.
+There are 11 unique characters in your string.
+The total number of characters in your string is 13.
+```
+- build output
+```
+
+```
