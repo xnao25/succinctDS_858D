@@ -1,4 +1,4 @@
-##Usage of Bit-Vector Select
+## Usage of Bit-Vector Select
 The implementation of bit-vector select operation is written into a class called **select_support**. It is built upon **rank_support object**.A **bit-vector** is required. All source files are in folder **succinctDS_Select**. Implementation can be used as classed or a command line program.
 
 ### Usage as an object
