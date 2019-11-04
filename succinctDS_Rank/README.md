@@ -1,5 +1,6 @@
 ## Usage of Bit-Vector Rank
 The implementation of bit-vector rank operation is written into a class called **rank_support**. A **bit-vector** is required. All source files are in folder **succinctDS_Rank**. Implementation can be used as classed or a command line program.
+[GitHub Repository: https://github.com/xnao25/succinctDS_858D](https://github.com/xnao25/succinctDS_858D)
 
 ### Usage as an object
 Three methods are implemented in this structure:
