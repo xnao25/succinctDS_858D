@@ -1,4 +1,4 @@
-##Usage of Wavelet-Tree
+## Usage of Wavelet-Tree
 The implementation of wavelet-tree is written into a class called **wavelet_tree**. It is built upon **rank_support** and **select_support**.
 
 Methods in this implementation can be used either as a class object or as a program after compilation.
